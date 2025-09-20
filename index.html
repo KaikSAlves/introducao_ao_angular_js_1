@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="meuModulo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Js</title>
+</head>
+<body ng-controller="indexController">
+    
+    <header>
+        {{titulo}}
+    </header>
+
+    <script src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript">
+
+        angular.module("meuModulo", [])
+        .controller("indexController", function($scope){
+            $scope.titulo = "Sistema com Angular JS";
+        })
+    </script>
+</body>
+</html>
