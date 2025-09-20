@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angular Js</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 </head>
 <body ng-controller="indexController">
     <header>
-        <h2>{{titulo}}</h2>
         <h2 ng-bind="titulo"></h2>
-        <table>
+        <table class="striped">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -28,12 +29,14 @@
                     <td>{{aluno.nota1}}</td>
                     <td>{{aluno.nota2}}</td>
                     <td>{{aluno.nota3}}</td>
-                    <td>0</td>
+                    <td>{{media(aluno)}}</td>
                 </tr>
             </tbody>
         </table>
     </header>
 
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="lib/angular/angular.min.js"></script>
     <script type="text/javascript">
 
@@ -45,6 +48,11 @@
                 {nome: "Pedro", email: "pedro@gmail.com", nota1:65, nota2:80, nota3:55},
                 {nome: "Thiago", email: "thiago@gmail.com", nota1:65, nota2:40, nota3:90},
             ];
+
+            $scope.media = function(Aluno){
+                var media = (Aluno.nota1 + Aluno.nota2 + Aluno.nota3) / 3;
+                return media.toFixed(2);
+            }
         })
     </script>
 </body>
