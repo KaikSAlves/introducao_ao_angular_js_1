@@ -4,11 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angular Js</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body ng-controller="indexController">
-    
     <header>
-        {{titulo}}
+        <h2>{{titulo}}</h2>
+        <h2 ng-bind="titulo"></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Nota1</th>
+                    <th>Nota2</th>
+                    <th>Nota3</th>
+                    <th>Média</th>
+                </tr>
+            </thead>
+            <tbody id="corpo-tabela">
+                <tr ng-repeat="aluno in alunos">
+                    <td>{{aluno.nome}}</td>
+                    <td>{{aluno.email}}</td>
+                    <td>{{aluno.nota1}}</td>
+                    <td>{{aluno.nota2}}</td>
+                    <td>{{aluno.nota3}}</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
     </header>
 
     <script src="lib/angular/angular.min.js"></script>
@@ -17,6 +40,11 @@
         angular.module("meuModulo", [])
         .controller("indexController", function($scope){
             $scope.titulo = "Sistema com Angular JS";
+            $scope.alunos = [
+                {nome: "Camila", email: "camila@gmail.com", nota1:65, nota2:80, nota3:55},
+                {nome: "Pedro", email: "pedro@gmail.com", nota1:65, nota2:80, nota3:55},
+                {nome: "Thiago", email: "thiago@gmail.com", nota1:65, nota2:40, nota3:90},
+            ];
         })
     </script>
 </body>
