@@ -39,6 +39,7 @@
                         <td>{{aluno.nota3}}</td>
                         <td>{{aluno.media}}</td>
                         <td><button ng-click="editarAluno(aluno)" class="btn blue modal-trigger" href="#modal1">Editar</button></td>
+                        <td><button ng-click="deletarAluno(aluno)" class="btn red" href="#modal1">Deletar</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -146,6 +147,15 @@
                         nota2: "",
                         nota3: "",
                         media: ""
+                    }
+                }
+
+                $scope.deletarAluno = function(Aluno) {
+                    for (var index in $scope.alunos) {
+                        var aux = $scope.alunos[index];
+                        if (Aluno === aux) {
+                            $scope.alunos.splice(index, 1);
+                        }
                     }
                 }
 
